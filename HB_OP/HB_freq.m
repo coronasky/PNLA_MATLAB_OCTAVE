@@ -1,0 +1,23 @@
+function F=HB_freq(x,w,amp,t,gamma_inv)
+pi=diag([j*4*w j*3*w j*2*w j*w 0 -j*w -j*2*w -j*3*w -j*4*w]);
+qq=[gamma_inv(1,:)*x;
+gamma_inv(2,:)*x;
+gamma_inv(3,:)*x;
+gamma_inv(4,:)*x;
+gamma_inv(5,:)*x;
+gamma_inv(6,:)*x;
+gamma_inv(7,:)*x;
+gamma_inv(8,:)*x;
+gamma_inv(9,:)*x];
+ii=[gamma_inv(1,:)*x+exp(40*gamma_inv(1,:)*x)-1;
+gamma_inv(2,:)*x+exp(40*gamma_inv(2,:)*x)-1;
+gamma_inv(3,:)*x+exp(40*gamma_inv(3,:)*x)-1;
+gamma_inv(4,:)*x+exp(40*gamma_inv(4,:)*x)-1;
+gamma_inv(5,:)*x+exp(40*gamma_inv(5,:)*x)-1;
+gamma_inv(6,:)*x+exp(40*gamma_inv(6,:)*x)-1;
+gamma_inv(7,:)*x+exp(40*gamma_inv(7,:)*x)-1;
+gamma_inv(8,:)*x+exp(40*gamma_inv(8,:)*x)-1;
+gamma_inv(9,:)*x+exp(40*gamma_inv(9,:)*x)-1];
+% u=[amp*cos(w*t(1));amp*cos(w*t(2));amp*cos(w*t(3));amp*cos(w*t(4));amp*cos(w*t(5));amp*cos(w*t(6));amp*cos(w*t(7));amp*cos(w*t(8));amp*cos(w*t(9))];
+u=[amp*sin(w*t(1));amp*sin(w*t(2));amp*sin(w*t(3));amp*sin(w*t(4));amp*sin(w*t(5));amp*sin(w*t(6));amp*sin(w*t(7));amp*sin(w*t(8));amp*sin(w*t(9))];
+F=pi*(gamma_inv\qq)+gamma_inv\ii+gamma_inv\u;

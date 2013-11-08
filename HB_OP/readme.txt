@@ -1,0 +1,5 @@
+We suppose the steady-state solution to VDP oscillator (x''-x'+x+3x'x^2=0) can be expressed as a truncated Fourier series, x=P*Phi_7, where Phi_7=[exp(-3jwt);exp(-2jwt);exp(-jwt),1,exp(jwt);exp(2jwt);exp(3jwt)], and P=[ pr3 - pi3*j, pr2 - pi2*j, pr1 - pi1*j, pr0, pi1*j + pr1, pi2*j + pr2, pi3*j + pr3]. Therefore all the variables {pr0...pr3, pi1...pi3, w} are real numbers.
+
+By using the Fourier series operational matrix method, we can represent VDP (x''-x'+x+3x'x^2=0) under Fourier basis. Since the rhs of VDP is 0, coefficients of Fourier basis on lhs must be all zero. Therefore we can set up a set of polynomial equations. Hopefully we can (approximately) solve the polynomial equations to restore the steady-state of VDP.
+
+The matlab script HB_VDP_p.m can generate the polynomial equations of VDP. 'n' is the order of Fourier series to be built. 'P' is the unknown coefficients and 'w' is the unknown frequency. 'eqn' returns a vector of symbolic polynomial equations to be solved (all should be zero).
