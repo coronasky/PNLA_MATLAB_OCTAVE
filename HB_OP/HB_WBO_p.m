@@ -3,7 +3,7 @@
 % v2, add several assumptions
 
 syms w pr0; 
-n=3;   % single side, m=2n+1 harmonics in all
+n=2;   % single side, m=2n+1 harmonics in all
 n_lower=3;
 m=2*n+1;
 D=1j*w*Dm(n);   % build differential operational matrix
