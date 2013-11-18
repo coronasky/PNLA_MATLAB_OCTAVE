@@ -10,7 +10,11 @@ function rows = getCra(Asys,dmax)
 % CALLS
 % -----
 %
+<<<<<<< HEAD
 % getMon.m
+=======
+% getMon.m, feti.m
+>>>>>>> upstream/master
 %
 % Kim Batselier, 2011-10
 
@@ -41,7 +45,11 @@ end
 
 rows = zeros(1,size(monBase,1));
 for i = 1 : length(rows)
+<<<<<<< HEAD
     rows(i) = fetr(monBase(i,:));
+=======
+    rows(i) = feti(monBase(i,:));
+>>>>>>> upstream/master
 end
 
 
