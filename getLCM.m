@@ -169,12 +169,12 @@ d = max(df,dg);
 % initialization Macaulay matrix and orthogonal basis kernel
 if ~notsparse
     Mf = getM(fsys,d,1);
-    [Q , R, P] = qr(Mf','vector'); % very painful if c(d) is comparable to q(d)
+    [Q , R, P] = qr(Mf'); % very painful if c(d) is comparable to q(d)
     Qf=Q(:,size(Mf,1));   % always of full row rank
 	Nf=Q(:,size(Mf,1)+1:end);
 
 	Mg = getM(gsys,d,1);
-	[Q ,R, P] = qr(Mg','vector'); % very painful if c(d) is comparable to q(d)
+	[Q ,R, P] = qr(Mg'); % very painful if c(d) is comparable to q(d)
 	Ng = Q(:,size(Mg,1)+1:end); 
 	tol = 20*sum(size(Mf))*eps;
 else
@@ -209,7 +209,7 @@ while isempty(lcm) && d <= df+dg
         lcm = sparse(Qf*Z(:,end))';
         % decomposition of lcm in M via qr
         % Mg is always of full row rank!
-        [asin(s) d tol]
+%         [asin(s) d tol]
         M=getM(gsys,d,1);        
         h =  (M'\lcm')';   
         e = norm(lcm-h*M);
@@ -219,8 +219,8 @@ while isempty(lcm) && d <= df+dg
 		[Qf Nf tol] = updateOrth(Qf,Nf,getMex(fsys,d,d-1,1),1);
 		Ng = updateN(Ng,getMex(gsys,d,d-1,1),1);        
 	  else
-		[Qf Nf tol] = updateOrth(Qf,Nf,getMex(fsys,d,d-1,1));
-		Ng = updateN(Ng,getMex(gsys,d,d-1,1));      
+		[Qf Nf tol] = updateOrth(Qf,Nf,getMex(fsys,d,d-1));
+		Ng = updateN(Ng,getMex(gsys,d,d-1));      
 	  end
       
     end
