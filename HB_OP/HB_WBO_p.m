@@ -3,12 +3,12 @@
 % v2, add several assumptions
 
 syms w pr0; 
-n=2;   % single side, m=2n+1 harmonics in all
+n=3;   % single side, m=2n+1 harmonics in all
 n_lower=3;
 m=2*n+1;
 D=1j*w*Dm(n);   % build differential operational matrix
-Pr=sym('pr',[1 n]);  % unknown variables real part
-Pi=sym('pi',[1 n]);  % unknown variables imag part
+Pr=sym('cr',[1 n]);  % unknown variables real part
+Pi=sym('ci',[1 n]);  % unknown variables imag part
 
 Pr=sym(Pr,'real');Pi=sym(Pi,'real');pr0=sym(pr0,'real');w=sym(w,'real');  % all variables are real
 Pi(1)=0;pr0=0;%Pr(4)=0;Pi(4)=0;   % manually set these variables to be zero !!!! added in v2
@@ -69,6 +69,12 @@ eqn_upper5=expand(eqn_lower7-eqn_lower5);
 eqn_upper3=expand(eqn_lower5-eqn_lower3);
 eqn_upper1=expand(eqn_lower3-eqn_lower1);
 eqn_upper0=eqn_lower1;
+
+syms cr1;
+eqn_all(1)=expand(eqn_all(1)/cr1);
+eqn_all(2)=expand(eqn_all(2)/cr1/w);
+vpa(eqn_all)    % generate eqns for our solver
+% eqn_all*1000    % generate eqns for Maple (Grobner basis)
 
 % P_low
 syms p;

@@ -1,28 +1,26 @@
 % Jacobian of polynomial equations
-syms w pr1 pr3 pi3 pr5 pi5
-vars=[w,pr1, pr3, pi3, pr5, pi5];
+syms w cr1 cr3 ci3 cr5 ci5
+vars=[w,cr1, cr3, ci3];
 eqn=eqn_all;
 % eqn(1)=eqn_all(3);eqn(2)=eqn_all(6);eqn(3)=eqn_all(2);eqn(4)=eqn_all(5);eqn(5)=eqn_all(1);eqn(6)=eqn_all(4);
-% Jac=jacobian(eqn,vars);
+Jac=jacobian(eqn,vars);
 
-load('save_jacobian_WBO')
+% load('save_jacobian_WBO')
 
-w = 0.9967;
-c1 =  0.1922;
-% c3r = -0.024523254236563325095870940201166;
-% c3i = 0.064145783801961427976067869239161;
-% c5i = -0.009478181088859126891376836651277;
-% c5r = -0.011010754430848876951384997121712;
+% w = 0.9967;
+% c1 =  0.1922;
+w = 0.7976;
+c1 =  1.4856;
 
 
-init=[w,c1,0,0,0,0];
+init=[w,c1,0,0];
 x=init.';
-beta=inv(subs(Jac,vars,x));
-eta=beta*subs(eqn,vars,x);
+% beta=inv(subs(Jac,vars,x));
+% eta=beta*subs(eqn,vars,x);
 for i=1:10,
     f=subs(eqn,vars,x);
     j=subs(Jac,vars,x);
-    x=x-j\f;
+    x=x-j\f
 end
 x
 %%%%%%%%-------Jacobian of Jacobian

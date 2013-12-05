@@ -84,6 +84,7 @@ for i=1:size(eqn_all,1)
 
     eqn_cell{i}=a;
 end
+adfa
 for j=1:length(sym_var),
     %         eqn_cell,sym_var(j),strcat('a[',int2str(j),']')
     eqn_cell=strrep(eqn_cell,char(sym_var(j)),strcat('a[',int2str(j),']'));

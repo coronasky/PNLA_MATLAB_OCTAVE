@@ -1,8 +1,8 @@
 clc;
-t=[0:0.01:100];
+t=[0:0.001:0.3];
 
 
-[T,Y1] = ode45(@WBO_ode ,t,[0.1;0]);
+[T,Y1] = ode45(@WBO_ode ,t,[3;0]);
 
 
 figure;hold on;grid on;% 
