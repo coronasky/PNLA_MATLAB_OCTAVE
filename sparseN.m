@@ -88,11 +88,12 @@ for i=1:p
     if nM(i+1) > tol
         nindex=find(M(1,:));
         zindex=setdiff(1:q,nindex);
-        
+        M
+%         abs(M(1,:))
         pivotI=nindex(find(abs(M(1,nindex))==max(abs(M(1,nindex))),1));
         tempI=setdiff(nindex,pivotI);
         M(1,:)=M(1,:)/M(1,pivotI);
-          
+        pivotI
         tempM=M;
         M=spalloc(p-1,q-1,nnz(tempM));
         M(:,1:length(zindex))=tempM(2:end,zindex);
@@ -100,7 +101,6 @@ for i=1:p
         tempN=N;
         N=spalloc(size(N,1),q-1,nnz(tempN));
         N(:,1:length(zindex))=tempN(:,zindex);
-        
         for j=1:length(tempI)
             % remaining columns of M            
             M(:,length(zindex)+j)=tempM(1,tempI(j))*tempM(2:end,pivotI)-tempM(1,pivotI)*tempM(2:end,tempI(j));

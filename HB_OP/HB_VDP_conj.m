@@ -6,7 +6,7 @@
 % conjugate unknowns version
 
 syms w pr0; 
-n=9;   % single side, m=2n+1 harmonics in all
+n=3;   % single side, m=2n+1 harmonics in all
 n_lower=5;   % all to n, lower terms to n_lower
 m=2*n+1;
 D=1j*w*Dm(n);   % build differential operational matrix
@@ -48,7 +48,7 @@ P3m=P3m(2*n+1:4*n+1);  % shrink P3m to Phi(m) fourier basis
 Pmall=Pm+P3m;
 %%%%% conjugate representation
 
-
+asdf
 eqn_all=expand(Pmall(1:2:end).');   % even order eqn all 0, omit
 eqn_all=flipud(eqn_all(1:(n+1)/2));
 

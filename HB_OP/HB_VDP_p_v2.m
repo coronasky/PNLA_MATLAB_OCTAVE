@@ -3,7 +3,7 @@
 % v2, add several assumptions
 
 syms w pr0; 
-n=5;   % single side, m=2n+1 harmonics in all
+n=3;   % single side, m=2n+1 harmonics in all
 n_lower=3;
 m=2*n+1;
 D=1j*w*Dm(n);   % build differential operational matrix
@@ -84,7 +84,7 @@ for i=1:size(eqn_all,1)
 
     eqn_cell{i}=a;
 end
-adfa
+% adfa
 for j=1:length(sym_var),
     %         eqn_cell,sym_var(j),strcat('a[',int2str(j),']')
     eqn_cell=strrep(eqn_cell,char(sym_var(j)),strcat('a[',int2str(j),']'));
